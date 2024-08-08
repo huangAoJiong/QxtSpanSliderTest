@@ -7,12 +7,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->lineEdit->setText("10");
-    ui->lineEdit_2->setText("200");
-    ui->horizontalSlider->setHandleMovementMode(QxtSpanSlider::NoOverlapping);
-    ui->horizontalSlider->setMaximum(200);
-    ui->horizontalSlider->setLowerValue(10);
-    ui->horizontalSlider->setUpperValue(200);
+//    ui->lineEdit->setText("10");
+//    ui->lineEdit_2->setText("2000");
+//    ui->horizontalSlider->setHandleMovementMode(QxtSpanSlider::NoOverlapping);
+//    ui->horizontalSlider->setMaximum(200);
+//    ui->horizontalSlider->setLowerValue(10);
+//    ui->horizontalSlider->setUpperValue(2000);
+//    ui->horizontalSlider->set
     connect(ui->horizontalSlider,SIGNAL(lowerValueChanged(int)),this,SLOT(lowerValueChangedSlot(int)));
     connect(ui->horizontalSlider,SIGNAL(upperValueChanged(int)),this,SLOT(upperValueChangedSlot(int)));
     connect(ui->lineEdit,SIGNAL(textChanged(QString)),this,SLOT(lowerTextChangedSlot(QString)));

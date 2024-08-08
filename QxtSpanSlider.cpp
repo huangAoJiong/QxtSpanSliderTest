@@ -295,34 +295,29 @@ void QxtSpanSliderPrivate::movePressedHandle()
 /*!
     \class QxtSpanSlider
     \inmodule QxtWidgets
-    \brief The QxtSpanSlider widget is a QSlider with two handles.
-    QxtSpanSlider is a slider with two handles. QxtSpanSlider is
-    handy for letting user to choose an span between min/max.
-    The span color is calculated based on QPalette::Highlight.
-    The keys are bound according to the following table:
+    \brief QxtSpanSlider 小部件是一个带有两个滑块的 QSlider。
+    QxtSpanSlider 是一个带有两个滑块的滑块控件。QxtSpanSlider 适合让用户选择一个介于最小值和最大值之间的范围。
+    范围的颜色是根据 QPalette::Highlight 计算的。
+    键盘按键的绑定如下表所示：
     \table
-    \header \o Orientation    \o Key           \o Handle
-    \row    \o Qt::Horizontal \o Qt::Key_Left  \o lower
-    \row    \o Qt::Horizontal \o Qt::Key_Right \o lower
-    \row    \o Qt::Horizontal \o Qt::Key_Up    \o upper
-    \row    \o Qt::Horizontal \o Qt::Key_Down  \o upper
-    \row    \o Qt::Vertical   \o Qt::Key_Up    \o lower
-    \row    \o Qt::Vertical   \o Qt::Key_Down  \o lower
-    \row    \o Qt::Vertical   \o Qt::Key_Left  \o upper
-    \row    \o Qt::Vertical   \o Qt::Key_Right \o upper
+    \header \o 方向             \o 按键            \o 滑块
+    \row    \o Qt::Horizontal   \o Qt::Key_Left   \o lower
+    \row    \o Qt::Horizontal   \o Qt::Key_Right  \o lower
+    \row    \o Qt::Horizontal   \o Qt::Key_Up     \o upper
+    \row    \o Qt::Horizontal   \o Qt::Key_Down   \o upper
+    \row    \o Qt::Vertical     \o Qt::Key_Up     \o lower
+    \row    \o Qt::Vertical     \o Qt::Key_Down   \o lower
+    \row    \o Qt::Vertical     \o Qt::Key_Left   \o upper
+    \row    \o Qt::Vertical     \o Qt::Key_Right  \o upper
     \endtable
-    Keys are bound by the time the slider is created. A key is bound
-    to same handle for the lifetime of the slider. So even if the handle
-    representation might change from lower to upper, the same key binding
-    remains.
-    \image qxtspanslider.png "QxtSpanSlider in Plastique style."
-    \bold {Note:} QxtSpanSlider inherits QSlider for implementation specific
-    reasons. Adjusting any single handle specific properties like
+    键位绑定是在滑块创建时确定的。在滑块的生命周期内，一个键位始终绑定到相同的滑块。因此，即使滑块的表示从 lower 变为 upper，键位绑定仍然保持不变。
+    \image qxtspanslider.png "QxtSpanSlider 在 Plastique 风格下的样式。"
+    \bold {注意:} QxtSpanSlider 继承自 QSlider 是由于实现上的原因。调整任何单个滑块特定属性如
     \list
     \o QAbstractSlider::sliderPosition
     \o QAbstractSlider::value
     \endlist
-    has no effect. However, all slider specific properties like
+    将不会有任何效果。然而，所有滑块特定属性如
     \list
     \o QAbstractSlider::invertedAppearance
     \o QAbstractSlider::invertedControls
@@ -334,58 +329,57 @@ void QxtSpanSliderPrivate::movePressedHandle()
     \o QSlider::tickInterval
     \o QSlider::tickPosition
     \endlist
-    are taken into consideration.
+    都会被考虑在内。
  */
 
 /*!
     \enum QxtSpanSlider::HandleMovementMode
-    This enum describes the available handle movement modes.
-    \value FreeMovement The handles can be moved freely.
-    \value NoCrossing The handles cannot cross, but they can still overlap each other. The lower and upper values can be the same.
-    \value NoOverlapping The handles cannot overlap each other. The lower and upper values cannot be the same.
+    此枚举描述了可用的滑块移动模式。
+    \value FreeMovement 滑块可以自由移动。
+    \value NoCrossing 滑块不能交叉，但仍可以重叠。下限值和上限值可以相同。
+    \value NoOverlapping 滑块不能重叠。下限值和上限值不能相同。
  */
 
 /*!
     \enum QxtSpanSlider::SpanHandle
-    This enum describes the available span handles.
-    \omitvalue NoHandle \omit Internal only (for now). \endomit
-    \value LowerHandle The lower boundary handle.
-    \value UpperHandle The upper boundary handle.
+    此枚举描述了可用的范围滑块。
+    \omitvalue NoHandle \omit 仅用于内部（暂时）。 \endomit
+    \value LowerHandle 下限滑块。
+    \value UpperHandle 上限滑块。
  */
 
 /*!
     \fn QxtSpanSlider::lowerValueChanged(int lower)
-    This signal is emitted whenever the \a lower value has changed.
+    每当 \a lower 值发生变化时，都会发出此信号。
  */
 
 /*!
     \fn QxtSpanSlider::upperValueChanged(int upper)
-    This signal is emitted whenever the \a upper value has changed.
+    每当 \a upper 值发生变化时，都会发出此信号。
  */
 
 /*!
     \fn QxtSpanSlider::spanChanged(int lower, int upper)
-    This signal is emitted whenever both the \a lower and the \a upper
-    values have changed ie. the span has changed.
+    每当 \a lower 和 \a upper 值都发生变化时（即范围发生变化时），都会发出此信号。
  */
 
 /*!
     \fn QxtSpanSlider::lowerPositionChanged(int lower)
-    This signal is emitted whenever the \a lower position has changed.
+    每当 \a lower 位置发生变化时，都会发出此信号。
  */
 
 /*!
     \fn QxtSpanSlider::upperPositionChanged(int upper)
-    This signal is emitted whenever the \a upper position has changed.
+    每当 \a upper 位置发生变化时，都会发出此信号。
  */
 
 /*!
     \fn QxtSpanSlider::sliderPressed(SpanHandle handle)
-    This signal is emitted whenever the \a handle has been pressed.
+    每当按下 \a handle 时，都会发出此信号。
  */
 
 /*!
-    Constructs a new QxtSpanSlider with \a parent.
+    使用 \a parent 构造一个新的 QxtSpanSlider。
  */
 QxtSpanSlider::QxtSpanSlider(QWidget* parent) : QSlider(parent), d_ptr(new QxtSpanSliderPrivate())
 {
@@ -393,19 +387,18 @@ QxtSpanSlider::QxtSpanSlider(QWidget* parent) : QSlider(parent), d_ptr(new QxtSp
     connect(this, SIGNAL(rangeChanged(int, int)), d_ptr, SLOT(updateRange(int, int)));
     connect(this, SIGNAL(sliderReleased()), d_ptr, SLOT(movePressedHandle()));
 }
-
 /*!
-    Constructs a new QxtSpanSlider with \a orientation and \a parent.
+    使用 \a orientation 和 \a parent 构造一个新的 QxtSpanSlider。
  */
 QxtSpanSlider::QxtSpanSlider(Qt::Orientation orientation, QWidget* parent) : QSlider(orientation, parent), d_ptr(new QxtSpanSliderPrivate())
 {
-  d_ptr->q_ptr = this;
+    d_ptr->q_ptr = this;
     connect(this, SIGNAL(rangeChanged(int, int)), d_ptr, SLOT(updateRange(int, int)));
     connect(this, SIGNAL(sliderReleased()), d_ptr, SLOT(movePressedHandle()));
 }
 
 /*!
-    Destructs the span slider.
+    销毁 QxtSpanSlider 对象。
  */
 QxtSpanSlider::~QxtSpanSlider()
 {
@@ -413,7 +406,7 @@ QxtSpanSlider::~QxtSpanSlider()
 
 /*!
     \property QxtSpanSlider::handleMovementMode
-    \brief the handle movement mode
+    \brief 滑块移动模式
  */
 QxtSpanSlider::HandleMovementMode QxtSpanSlider::handleMovementMode() const
 {
@@ -427,7 +420,7 @@ void QxtSpanSlider::setHandleMovementMode(QxtSpanSlider::HandleMovementMode mode
 
 /*!
     \property QxtSpanSlider::lowerValue
-    \brief the lower value of the span
+    \brief 范围的下限值
  */
 int QxtSpanSlider::lowerValue() const
 {
@@ -441,7 +434,7 @@ void QxtSpanSlider::setLowerValue(int lower)
 
 /*!
     \property QxtSpanSlider::upperValue
-    \brief the upper value of the span
+    \brief 范围的上限值
  */
 int QxtSpanSlider::upperValue() const
 {
@@ -454,7 +447,7 @@ void QxtSpanSlider::setUpperValue(int upper)
 }
 
 /*!
-    Sets the span from \a lower to \a upper.
+    设置范围，从 \a lower 到 \a upper。
  */
 void QxtSpanSlider::setSpan(int lower, int upper)
 {
@@ -481,7 +474,7 @@ void QxtSpanSlider::setSpan(int lower, int upper)
 
 /*!
     \property QxtSpanSlider::lowerPosition
-    \brief the lower position of the span
+    \brief 范围的下限位置
  */
 int QxtSpanSlider::lowerPosition() const
 {
@@ -507,13 +500,29 @@ void QxtSpanSlider::setLowerPosition(int lower)
 
 /*!
     \property QxtSpanSlider::upperPosition
-    \brief the upper position of the span
+    \brief 范围的上限位置
+ */
+
+/*!
+    获取滑块范围的上限位置。
+    \return 返回上限位置的整数值。
  */
 int QxtSpanSlider::upperPosition() const
 {
     return d_ptr->upperPos;
 }
 
+/*!
+    设置滑块范围的上限位置。
+    \param upper 需要设置的上限位置的整数值。
+
+    如果当前上限位置与提供的值不同，该函数会更新上限位置，并触发相关信号。
+    - 如果滑块没有启用跟踪（tracking），在位置变化后会调用 update() 更新滑块的显示。
+    - 如果滑块被按下，会触发 \c upperPositionChanged() 信号，通知上限位置发生了变化。
+    - 如果滑块启用了跟踪，并且 \c blockTracking 为 false，则会根据当前滑块状态触发适当的滑块动作。
+
+    \note 如果在自由移动（FreeMovement）模式下，新的上限位置比下限位置还要低，滑块的控制会被交换，并更新上限位置。
+ */
 void QxtSpanSlider::setUpperPosition(int upper)
 {
     if (d_ptr->upperPos != upper)
@@ -533,6 +542,10 @@ void QxtSpanSlider::setUpperPosition(int upper)
 
 /*!
     \reimp
+    处理键盘按键事件，用于改变滑块的位置。
+    根据不同的键盘按键，执行相应的滑块动作，例如单步移动或跳转到最小/最大值。
+
+    \param event 指向键盘事件对象的指针。
  */
 void QxtSpanSlider::keyPressEvent(QKeyEvent* event)
 {
@@ -577,6 +590,12 @@ void QxtSpanSlider::keyPressEvent(QKeyEvent* event)
 
 /*!
     \reimp
+    处理鼠标按下事件。
+
+    此方法用于处理滑块的鼠标按下操作，并确定用户按下的是哪个滑块（上限或下限滑块）。
+    如果两个滑块之间的距离等于最小值或最大值，或者鼠标按键未正确释放，则忽略该事件。
+
+    \param event 指向鼠标事件对象的指针。
  */
 void QxtSpanSlider::mousePressEvent(QMouseEvent* event)
 {
@@ -596,6 +615,13 @@ void QxtSpanSlider::mousePressEvent(QMouseEvent* event)
 
 /*!
     \reimp
+    处理鼠标移动事件。
+
+    在滑块被按住且移动时，该方法会根据鼠标的位置更新滑块的位置。
+    如果移动距离超过指定范围，滑块将不会被更新。
+    在自由移动模式下，如果新的滑块位置跨越了另一滑块的位置，两个滑块的控制会被交换。
+
+    \param event 指向鼠标事件对象的指针。
  */
 void QxtSpanSlider::mouseMoveEvent(QMouseEvent* event)
 {
@@ -618,7 +644,7 @@ void QxtSpanSlider::mouseMoveEvent(QMouseEvent* event)
         }
     }
 
-    // pick the preferred handle on the first movement
+    // 在第一次移动时，选择优先操作的滑块
     if (d_ptr->firstMovement)
     {
         if (d_ptr->lower == d_ptr->upper)
@@ -674,41 +700,59 @@ void QxtSpanSlider::mouseMoveEvent(QMouseEvent* event)
 
 /*!
     \reimp
+    该函数重写了 QSlider 的 mouseReleaseEvent，用于处理鼠标释放事件。
+    当鼠标按钮被释放时，将会调用该函数。
  */
 void QxtSpanSlider::mouseReleaseEvent(QMouseEvent* event)
 {
+    // 调用父类的 mouseReleaseEvent 函数，确保基本的释放事件处理得以执行
     QSlider::mouseReleaseEvent(event);
+
+    // 将滑块设置为未按下状态
     setSliderDown(false);
+
+    // 重置下限和上限滑块的按压状态
     d_ptr->lowerPressed = QStyle::SC_None;
     d_ptr->upperPressed = QStyle::SC_None;
+
+    // 更新组件的外观
     update();
 }
 
 /*!
     \reimp
+    该函数重写了 QSlider 的 paintEvent，用于绘制滑块组件的自定义外观。
+    当需要重新绘制滑块组件时，将会调用该函数。
  */
 void QxtSpanSlider::paintEvent(QPaintEvent* event)
 {
+    // Q_UNUSED 用于标识未使用的参数以避免编译器警告
     Q_UNUSED(event);
+
+    // 创建 QStylePainter 对象，用于绘制组件
     QStylePainter painter(this);
 
-    // groove & ticks
+    // 创建 QStyleOptionSlider 对象，并初始化选项
     QStyleOptionSlider opt;
     d_ptr->initStyleOption(&opt);
+
+    // 绘制滑槽和刻度标记
     opt.sliderValue = 0;
     opt.sliderPosition = 0;
     opt.subControls = QStyle::SC_SliderGroove | QStyle::SC_SliderTickmarks;
     painter.drawComplexControl(QStyle::CC_Slider, opt);
 
-    // handle rects
+    // 计算下限滑块的矩形区域
     opt.sliderPosition = d_ptr->lowerPos;
     const QRect lr = style()->subControlRect(QStyle::CC_Slider, &opt, QStyle::SC_SliderHandle, this);
     const int lrv  = d_ptr->pick(lr.center());
+
+    // 计算上限滑块的矩形区域
     opt.sliderPosition = d_ptr->upperPos;
     const QRect ur = style()->subControlRect(QStyle::CC_Slider, &opt, QStyle::SC_SliderHandle, this);
     const int urv  = d_ptr->pick(ur.center());
 
-    // span
+    // 计算 span（滑块之间的范围）的矩形区域
     const int minv = qMin(lrv, urv);
     const int maxv = qMax(lrv, urv);
     const QPoint c = QRect(lr.center(), ur.center()).center();
@@ -717,19 +761,24 @@ void QxtSpanSlider::paintEvent(QPaintEvent* event)
         spanRect = QRect(QPoint(minv, c.y() - 2), QPoint(maxv, c.y() + 1));
     else
         spanRect = QRect(QPoint(c.x() - 2, minv), QPoint(c.x() + 1, maxv));
+
+    // 绘制 span 的外观
     d_ptr->drawSpan(&painter, spanRect);
 
-    // handles
+    // 根据最后一个被按下的滑块，绘制滑块的外观
     switch (d_ptr->lastPressed)
     {
     case QxtSpanSlider::LowerHandle:
+        // 优先绘制上限滑块，然后绘制下限滑块
         d_ptr->drawHandle(&painter, QxtSpanSlider::UpperHandle);
         d_ptr->drawHandle(&painter, QxtSpanSlider::LowerHandle);
         break;
     case QxtSpanSlider::UpperHandle:
     default:
+        // 优先绘制下限滑块，然后绘制上限滑块
         d_ptr->drawHandle(&painter, QxtSpanSlider::LowerHandle);
         d_ptr->drawHandle(&painter, QxtSpanSlider::UpperHandle);
         break;
     }
 }
+
